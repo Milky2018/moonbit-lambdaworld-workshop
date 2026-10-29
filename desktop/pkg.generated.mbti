@@ -1,14 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "workshop/todo_frontend/main"
+package "workshop/todo_desktop"
 
 // Values
 
 // Errors
 
 // Types and methods
-type Model derive(Eq)
-
-type Msg
 
 // Type aliases
 

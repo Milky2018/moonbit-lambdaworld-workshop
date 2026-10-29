@@ -11,9 +11,9 @@ solution, presented as a pull request into `main` so its diff shows the answer.
 moon.work
 shared/             Todo, Action, Snapshot, and the typed desktop command
   store/            SQLite schema and operations, shared by both backends
-frontend/main/      Rabbita model, update, view, and transport selection
-web/main/           MoonBack HTTP endpoint and static files
-desktop/main/       Proton window and IPC command binding
+frontend/           Rabbita model, update, view, and transport selection
+web/                MoonBack HTTP endpoint and static files
+desktop/            Proton window and IPC command binding
 ```
 
 `shared` is a module; `shared/store` is a package within that module. Browser
@@ -77,7 +77,7 @@ requires `native`.
 
 ## Follow a request
 
-1. `frontend/main/view.mbt` emits a message for a user action.
+1. `frontend/view.mbt` emits a message for a user action.
 2. `model.mbt` updates UI state and returns a command.
 3. `transport.mbt` sends the shared `Action` through HTTP or Proton IPC.
 4. The backend delegates to `shared/store`, which binds SQL parameters, performs
