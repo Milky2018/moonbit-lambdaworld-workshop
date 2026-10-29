@@ -20,10 +20,12 @@ test "delete removes only the selected todo and keeps it deleted" {
   defer store.close()
   let kept = store.execute(Add("Keep me")).todos[0]
   let removed = store.execute(Add("Delete me")).todos[1]
-  assert_eq(store.execute(Delete(removed.id)).todos, [kept])
+  let delete : @shared.Action = @json.from_json(["Delete", Json(removed.id)])
+  assert_eq(store.execute(delete).todos, [kept])
   assert_eq(store.execute(List).todos, [kept])
-  assert_eq(store.execute(Delete(removed.id)).todos, [kept])
-  assert_eq(store.execute(Delete(kept.id)).todos.length(), 0)
+  assert_eq(store.execute(delete).todos, [kept])
+  let delete_kept : @shared.Action = @json.from_json(["Delete", Json(kept.id)])
+  assert_eq(store.execute(delete_kept).todos.length(), 0)
   let next = store.execute(Add("Next lesson")).todos[0]
   assert_true(next.id > removed.id)
 }
