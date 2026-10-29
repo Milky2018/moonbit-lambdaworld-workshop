@@ -3,6 +3,10 @@
 A minimal application with four MoonBit modules, one Rabbita frontend, and
 SQLite persistence. The only features are adding, completing, and deleting todos.
 
+This is the `exercise/delete` branch: deletion is intentionally incomplete.
+Follow [the delete exercise](EXERCISE.md). The `main` branch contains the complete
+reference implementation.
+
 ```text
 moon.work
 shared/             Todo, Action, Snapshot, and the typed desktop command

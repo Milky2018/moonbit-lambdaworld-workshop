@@ -1,5 +1,5 @@
 ///|
-test "create, complete, and delete with parameter binding" {
+test "create and complete with parameter binding" {
   let store = @store.Store::open(":memory:")
   defer store.close()
   assert_eq(store.execute(List).todos.length(), 0)
@@ -12,9 +12,20 @@ test "create, complete, and delete with parameter binding" {
   assert_true(completed.todos[0].completed)
   let reopened = store.execute(SetCompleted(todo.id, false))
   assert_false(reopened.todos[0].completed)
-  assert_eq(store.execute(Delete(todo.id)).todos.length(), 0)
+}
+
+///|
+test "delete removes only the selected todo and keeps it deleted" {
+  let store = @store.Store::open(":memory:")
+  defer store.close()
+  let kept = store.execute(Add("Keep me")).todos[0]
+  let removed = store.execute(Add("Delete me")).todos[1]
+  assert_eq(store.execute(Delete(removed.id)).todos, [kept])
+  assert_eq(store.execute(List).todos, [kept])
+  assert_eq(store.execute(Delete(removed.id)).todos, [kept])
+  assert_eq(store.execute(Delete(kept.id)).todos.length(), 0)
   let next = store.execute(Add("Next lesson")).todos[0]
-  assert_true(next.id > todo.id)
+  assert_true(next.id > removed.id)
 }
 
 ///|
