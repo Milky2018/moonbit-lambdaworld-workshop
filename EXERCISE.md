@@ -60,5 +60,9 @@ The web and desktop apps use separate database files by default.
 - Why does removing a todo only from the frontend model fail the persistence
   check?
 
-The complete reference implementation is on `main`. Use `git show main:<path>`
-to inspect a reference file without switching branches.
+The `main` branch is the starter. The `exercise` branch contains the complete
+solution, presented as a pull request with `main` as its base. The PR diff shows
+the two changes needed to complete this exercise.
+
+Use `git diff main...exercise` to inspect the answer locally, or
+`git show exercise:<path>` to inspect a solution file without switching branches.
