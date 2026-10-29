@@ -32,8 +32,7 @@ fn view(model : Model, emit : @rabbita.Emit[Msg]) -> @html.Html {
             on_click=emit(Run(SetCompleted(todo.id, !todo.completed))),
           ) <| (if todo.completed { "✓" } else { "○" }),
           span(class=if todo.completed { "completed" } else { "" }) <| todo.title,
-          // TODO(exercise-delete): Dispatch the delete action for this todo.
-          button(disabled=model.busy) <| "Delete",
+          button(disabled=model.busy, on_click=emit(Run(Delete(todo.id)))) <| "Delete",
         ]
       }
     ],
