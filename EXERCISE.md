@@ -9,10 +9,10 @@ for both the web and desktop versions.
 Before editing, follow a completed operation from the view to the database:
 
 ```text
-frontend/main/view.mbt
+frontend/view.mbt
   → model.mbt → transport.mbt
-    → HTTP → web/main/main.mbt
-    → IPC  → desktop/main/main.mbt
+    → HTTP → web/main.mbt
+    → IPC  → desktop/main.mbt
       → shared/store/store.mbt → SQLite → Snapshot → frontend
 ```
 
@@ -21,7 +21,7 @@ accept this action and pass it to the shared store.
 
 ## 2. Complete the two TODOs
 
-- In `frontend/main/view.mbt`, connect each Delete button to the existing message
+- In `frontend/view.mbt`, connect each Delete button to the existing message
   and command flow, passing that todo's ID. Keep the `<|` view style.
 - In `shared/store/store.mbt`, implement the `Delete` branch with a prepared SQL
   statement, bind the selected ID, execute it, and finalize the statement.
