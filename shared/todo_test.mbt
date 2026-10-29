@@ -4,7 +4,6 @@ test "the same JSON protocol works across HTTP and IPC" {
     List,
     Add("Learn MoonBit"),
     SetCompleted(42L, true),
-    Delete(42L),
   ]
   for action in actions {
     let decoded : @shared.Action = @json.from_json(action.to_json())
@@ -15,4 +14,11 @@ test "the same JSON protocol works across HTTP and IPC" {
   }
   let decoded : @shared.Snapshot = @json.from_json(snapshot.to_json())
   assert_eq(snapshot.todos, decoded.todos)
+}
+
+///|
+test "delete action round trips through the shared JSON protocol" {
+  let request : Json = ["Delete", "42"]
+  let action : @shared.Action = @json.from_json(request)
+  assert_eq(action.to_json(), request)
 }

@@ -17,7 +17,6 @@ pub(all) enum Action {
   List
   Add(String)
   SetCompleted(Int64, Bool)
-  Delete(Int64)
 } derive(ToJson, @json.FromJson)
 pub fn Action::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Action::to_json(Self) -> Json

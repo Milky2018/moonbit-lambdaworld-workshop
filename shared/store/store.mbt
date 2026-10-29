@@ -49,9 +49,7 @@ pub fn Store::execute(
       statement.bind(index=2, id)
       statement.step() |> ignore
     }
-    Delete(_) =>
-      // TODO(exercise-delete): Delete the selected row using a bound parameter.
-      ()
+    // TODO(exercise-delete): Handle the deletion action with a bound SQL parameter.
   }
   let query = self.db.prepare(
     "SELECT id, title, completed FROM todos ORDER BY id",

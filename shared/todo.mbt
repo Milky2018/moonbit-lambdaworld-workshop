@@ -23,7 +23,7 @@ pub(all) enum Action {
   List
   Add(String)
   SetCompleted(Int64, Bool)
-  Delete(Int64)
+  // TODO(exercise-delete): Add an action carrying the ID of the todo to delete.
 } derive(ToJson, FromJson)
 
 ///|
