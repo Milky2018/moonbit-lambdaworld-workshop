@@ -1,0 +1,8 @@
+body { font: 16px system-ui, sans-serif; margin: 2rem auto; padding: 0 1rem; max-width: 36rem; }
+form, li { display: flex; gap: .5rem; margin: .75rem 0; }
+input, button { font: inherit; padding: .4rem .6rem; }
+input, li span { flex: 1; min-width: 0; }
+li span { align-self: center; overflow-wrap: anywhere; }
+ul { list-style: none; padding: 0; }
+.completed { text-decoration: line-through; color: #666; }
+[role="status"] { min-height: 1.5em; }

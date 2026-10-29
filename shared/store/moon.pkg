@@ -1,0 +1,10 @@
+import {
+  "workshop/todo_shared" @shared,
+  "moonbit-community/sqlite3",
+}
+
+import {
+  "workshop/todo_shared/store",
+} for "test"
+
+supported_targets = "wasm+native"

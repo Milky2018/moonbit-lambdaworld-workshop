@@ -1,0 +1,17 @@
+# Dependencies and local tools
+.mooncakes/
+.tools/
+
+# Build and packaging output
+_build/
+target/
+dist/
+
+# SQLite databases and sidecar files
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# macOS metadata
+.DS_Store
